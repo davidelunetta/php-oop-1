@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
     <title>php OOP</title>
 </head>
@@ -22,17 +23,21 @@ class Movie {
     }
 
     public function printCard() {
-        echo '<div class="card">';
+        echo '<div class="row">';
+        echo '<div class="col-md-4">';
+        echo '<div class="card" style="width: 18rem; margin-bottom: 20px;">'; // Stile di base della card
         if (!empty($this->poster_path)) {
-            echo '<img src="' . $this->poster_path . '" alt="' . $this->title . ' Poster">';
+            echo '<img src="' . $this->poster_path . '" class="card-img-top" alt="' . $this->title . ' Poster">'; // Immagine della card
         }
         echo '<div class="card-body">';
-        echo '<h5 class="card-title">' . $this->title . '</h5>';
-        echo '<p class="card-text">Descrizione: ' . $this->overview . '</p>';
-        echo '<p class="card-text">Anno di uscita: ' . $this->release_date . '</p>';
+        echo '<h5 class="card-title">' . $this->title . '</h5>'; // Titolo della card
+        echo '<p class="card-text">Descrizione: ' . $this->overview . '</p>'; // Descrizione della card
+        echo '<p class="card-text">Anno di uscita: ' . $this->release_date . '</p>'; // Anno di uscita della card
         echo '</div>';
         echo '</div>';
-    }
+        echo '</div>';
+        
+}
 }
 
 // Leggere il contenuto del file JSON
